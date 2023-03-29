@@ -50,7 +50,7 @@ public class ScheduleVO {
 	private String schedule_content;
 	
 	//아티스트 타입, 이름
-	@NotBlank(message = "아티스트 종류를 선택하세요")
+//	@NotBlank(message = "아티스트 종류를 선택하세요")
 	private String ent_type;
 	private String ent_name; 
 	
