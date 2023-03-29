@@ -15,194 +15,197 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 
-	<div class="fragment" style="margin-top: 110px;">
+   <div class="fragment" style="margin-top: 110px;">
 
 
-		<div class="edit_info_section">
-			<!-- 회원정보수정 제목 -->
+      <div class="edit_info_section">
+         <!-- 회원정보수정 제목 -->
 
-			<div class="edit_info_title" style="text-align: center;">
-				<h5>
-					<em style="font-size: 50px; color: rgb(31, 30, 30); margin-bottom: 30px;">My Page</em> <br /> <br /></br>회원 정보 수정
-				</h5>
-			</div>
-
-
-
-			<form action="userInfoForm" method="post">
-				<div class="edit_box">
-
-					<div class="edit_info_box edit_info_box1" style="border-bottom: none;">
-
-						<!-- 회원정보 입력 항목 -->
-
-						<!-- 이름 -->
-						<div class="edit_info_innerbox">
-							<diV class="edit_info left">
-								<strong class="left">이름<img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
-							</diV>
-							<div class="edit_info_content right">
-								<input type="text" name="user_name" class="input" th:value="${session.vo.user_name}" readonly>
-							</div>
-						</div>
-
-						<!-- 생년월일 -->
-						<div class="edit_info_innerbox">
-							<div class="edit_info left">
-								<strong>생년월일 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
-							</div>
-							<div class="edit_info_content right">
-								<select id="year" class="year birth"></select>
-								<select id="month" class="month birth"></select>
-								<select id="day" class="day birth"></select>
-								<input type="hidden" class="userBirth" name="user_birth" />
-							</div>
-						</div>
-
-						<!-- 성별 -->
-						<div class="edit_info_innerbox">
-							<div class="edit_info left">
-								<strong>성별 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
-							</div>
-							<div class="edit_info_content right gender">
-								여성
-								<input type="radio" name="user_gender" class="female" value="f" checked required>
-								남성
-								<input type="radio" name="user_gender" class="male" th:value="m" required>
-							</div>
-
-						</div>
-
-						<!-- 아이디 -->
-						<div class="edit_info_innerbox">
-							<div class="edit_info left">
-								<strong>아이디 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
-							</div>
-							<div class="edit_info_content right">
-								<input type="text" name="user_id" class="input id" minlength="4" maxlength="16" pattern="^([a-z0-9_]){4,16}$" th:value="${session.user_id}" readonly>
-							</div>
-
-							<!-- 비밀번호 -->
-							<div class="edit_info_innerbox">
-								<div class="edit_info left">
-									<strong>비밀번호 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
-								</div>
-								<div class="edit_info_content right">
-									<input type="password" name="user_pw" id="pw" class="input pw" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{8,16}$" minlength="8" maxlength="16" placeholder="영문 대소문자/숫자/특수문자 중 3가지 이상 조합, 8자~16자" th:value="${vo != null? vo.user_pw :''}" required>
-									<span style="color: red; font-size: 12px;">[[${valid_user_pw}]]</span>
-								</div>
-							</div>
-
-							<!-- 비밀번호 확인 -->
-							<div class="edit_info_innerbox">
-								<div class="edit_info left">
-									<strong>비밀번호 확인 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
-								</div>
-								<div class="edit_info_content right">
-									<input type="password" name="user_pw2" id="pw2" class="input pw" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{8,16}$" minlength="8" maxlength="16" th:value="${vo != null? vo.user_pw2:''}" placeholder="비밀번호 확인" required>
-									<span class=" notsame hide" style="color: red; font-size: 12px;" hidden>비밀번호가 일치하지 않습니다</span>
-								</div>
-							</div>
-
-							<!-- 이메일주소 -->
-							<div class="edit_info_innerbox">
-								<div class="edit_info left">
-									<strong>이메일 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
-								</div>
-								<div class="edit_info_content right">
-									<input type="email" name="user_email" class="input email" pattern="[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*" placeholder="이메일 형식으로 입력하세요" th:value="${session.vo.user_email}" required>
-									<span style="color: red; font-size: 12px;">[[${valid_user_email}]]</span>
-								</div>
-							</div>
-
-							<!-- 휴대전화 -->
-							<div class="edit_info_innerbox">
-								<div class="edit_info left">
-									<strong>휴대전화 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
-								</div>
-								<div class="edit_info_content right">
-									<input type="text" value="010" readonly name="userContact" class="region_num left" style="border: none; border-bottom: 0.5px solid #dfdfdf; padding-bottom: 2px;">
-
-									<span> - </span>
-									<input type="text" name="phone_num phone_num1" class="phone_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" pattern="/^\d{4}$/" th:value="${session.vo.user_contact.substring(4,8)}" required>
-									<span> - </span>
-									<input type="text" name="phone_num phone_num2" class="phone_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" pattern="/^\d{4}$/" th:value="${session.vo.user_contact.substring(9,13)}" required>
-									<span style="color: red; font-size: 12px;">[[${valid_user_contact}]]</span>
-									<input type="hidden" class="userContact" name="user_contact" />
-								</div>
-							</div>
+         <div class="edit_info_title" style="text-align: center;">
+            <h5>
+               <em style="font-size: 50px; color: rgb(31, 30, 30); margin-bottom: 30px;">My Page</em> <br /> <br /></br>회원 정보 수정
+            </h5>
+         </div>
 
 
-							<!-- 주소 -->
-							<div class="edit_info_innerbox" style="border-bottom: 0.5px solid #d7d7d7;">
-								<div class="edit_info left">
-									<strong>주소 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
-								</div>
-								<div class="edit_info_content right address" style="margin-bottom: 50px;">
-									<input type="text" name="user_zipcode" id="zipcode" size="7" placeholder="우편번호" style="border-bottom: 0.5px solid #dfdfdf;" onclick="kakaopost()" readonly>
-									<input type="button" value="우편번호찾기" id="zipcode" name="user_address" class="address_btn" onclick="kakaopost()" required>
-									<br />
-									<input type="text" name="user_address" id="address" size="70" th:value="${session.vo.user_address}">
-									<br />
-									<input type="text" name="user_address" id="address" size="70" th:value="${session.vo.user_address.substring(session.vo.user_address.indexOf(','),session.vo.user_address.length-1)}" placeholder=" 나머지주소">
-									<span style="color: red; font-size: 12px;">[[${valid_user_address}]]</span>
-								</div>
-							</div>
 
-						</div>
-					</div>
-					<!-- 좋아하는 연예인 선택 및 약관 -->
-					<div class="edit_box edit_box2">
-						<div class="edit_info_box edit_info_box2" style="border-top: none; padding-top: 0;">
-							<!-- 좋아하는 연예인 선택 -->
-							<div class="edit_info_innerbox fav_ent">
-								<div class="edit_info left">
-									<strong>좋아하는 연예인</strong>
-								</div>
-								<div class=" favorite">
-									<br />
-									<div class="entertainer">
-										<span>블랙핑크</span><br /> <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/blackpink.png"><br />
-										<input type="radio" name="user_fav_ent" class="entertainer" checked required value="BLACKPINK">
-									</div>
+         <form action="userInfoForm" method="post">
+            <div class="edit_box">
 
-									<div class="entertainer">
-										<span>뉴진스</span><br /> <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/newjeans.png"><br />
-										<input type="radio" name="user_fav_ent" class="entertainer" value="NewJeans" required>
-									</div>
+               <div class="edit_info_box edit_info_box1" style="border-bottom: none;">
 
-									<div class="entertainer">
-										<span>아이브</span><br /> <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/ive.png"><br />
-										<input type="radio" name="user_fav_ent" class="entertainer" value="IVE" required>
-									</div>
+                  <!-- 회원정보 입력 항목 -->
 
-									<div class="entertainer">
-										<span>이도현</span><br /> <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/leedo1.jpg"><br />
-										<input type="radio" name="user_fav_ent" class="entertainer" value="이도현" required>
-									</div>
+                  <!-- 이름 -->
+                  <div class="edit_info_innerbox">
+                     <diV class="edit_info left">
+                        <strong class="left">이름<img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
+                     </diV>
+                     <div class="edit_info_content right">
+                        <input type="text" name="user_name" class="input" th:value="${session.vo.user_name}" readonly>
+                     </div>
+                  </div>
 
-									<div class="entertainer chae">
-										<span>채수빈</span><br /> <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/subin.png"><br />
-										<input type="radio" name="user_fav_ent" class="entertainer" value="채수빈" required>
-									</div>
+                   <div class="edit_info_innerbox">
+                    <div class="edit_info left">
+                        <strong>생년월일 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
+                    </div>
+                    <div class="edit_info_content right">
+                       
+                        <input type="text" maxlength="4" class="birth"
+                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" th:value="${session.vo.user_birth.substring(0,4)}" readonly required><span>년</span>
+                        <input type="text" maxlength="2" class="birth"
+                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" th:value="${session.vo.user_birth.substring(5,7)}" readonly required><span>월</span>
+                        <input type="text" maxlength="2" class="birth"
+                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" th:value="${session.vo.user_birth.substring(8,10)}" readonly required><span>일</span>
 
-								</div>
-							</div>
-						</div>
-					</div>
+                    </div>
+                </div>
 
-					<!-- 수정 버튼 및 취소 버튼 -->
-					<div class="edit_btn">
-						<button class="edit_cancel" onclick="location.href='mypage'">취소</button>
-						<button type="submit" class="edit_complete">수정</button>
-					</div>
-				</div>
-			</form>
+                  <!-- 성별 -->
+                  <div class="edit_info_innerbox">
+                     <div class="edit_info left">
+                        <strong>성별 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
+                     </div>
+                     <div class="edit_info_content right gender">
+                        여성
+                        <input type="radio" name="user_gender" class="female" value="f" checked required>
+                        남성
+                        <input type="radio" name="user_gender" class="male" th:value="m" required>
+                     </div>
+
+                  </div>
+
+                  <!-- 아이디 -->
+                  <div class="edit_info_innerbox">
+                     <div class="edit_info left">
+                        <strong>아이디 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
+                     </div>
+                     <div class="edit_info_content right">
+                        <input type="text" name="user_id" class="input id" minlength="4" maxlength="16" pattern="^([a-z0-9_]){4,16}$" th:value="${session.user_id}" readonly>
+                     </div>
+
+                     <!-- 비밀번호 -->
+                     <div class="edit_info_innerbox">
+                        <div class="edit_info left">
+                           <strong>비밀번호 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
+                        </div>
+                        <div class="edit_info_content right">
+                           <input type="password" name="user_pw" id="pw" class="input pw" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{8,16}$" minlength="8" maxlength="16" placeholder="영문 대소문자/숫자/특수문자 중 3가지 이상 조합, 8자~16자" th:value="${vo != null? vo.user_pw :''}" required>
+                           <span style="color: red; font-size: 12px;">[[${valid_user_pw}]]</span>
+                        </div>
+                     </div>
+
+                     <!-- 비밀번호 확인 -->
+                     <div class="edit_info_innerbox">
+                        <div class="edit_info left">
+                           <strong>비밀번호 확인 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
+                        </div>
+                        <div class="edit_info_content right">
+                           <input type="password" name="user_pw2" id="pw2" class="input pw" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{8,16}$" minlength="8" maxlength="16" th:value="${vo != null? vo.user_pw2:''}" placeholder="비밀번호 확인" required>
+                           <span class=" notsame hide" style="color: red; font-size: 12px;" hidden>비밀번호가 일치하지 않습니다</span>
+                        </div>
+                     </div>
+
+                     <!-- 이메일주소 -->
+                     <div class="edit_info_innerbox">
+                        <div class="edit_info left">
+                           <strong>이메일 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
+                        </div>
+                        <div class="edit_info_content right">
+                           <input type="email" name="user_email" class="input email" pattern="[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*" placeholder="이메일 형식으로 입력하세요" th:value="${session.vo.user_email}" required>
+                           <span style="color: red; font-size: 12px;">[[${valid_user_email}]]</span>
+                        </div>
+                     </div>
+
+                     <!-- 휴대전화 -->
+                     <div class="edit_info_innerbox">
+                        <div class="edit_info left">
+                           <strong>휴대전화 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
+                        </div>
+                        <div class="edit_info_content right">
+                           <input type="text" value="010" readonly name="userContact" class="region_num left" style="border: none; border-bottom: 0.5px solid #dfdfdf; padding-bottom: 2px;">
+
+                           <span> - </span>
+                           <input type="text" name="phone_num phone_num1" class="phone_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" pattern="/^\d{4}$/" th:value="${session.vo.user_contact.substring(4,8)}" required>
+                           <span> - </span>
+                           <input type="text" name="phone_num phone_num2" class="phone_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" pattern="/^\d{4}$/" th:value="${session.vo.user_contact.substring(9,13)}" required>
+                           <span style="color: red; font-size: 12px;">[[${valid_user_contact}]]</span>
+                           <input type="hidden" class="userContact" name="user_contact" />
+                        </div>
+                     </div>
 
 
-		</div>
-	</div>
+                     <!-- 주소 -->
+                     <div class="edit_info_innerbox" style="border-bottom: 0.5px solid #d7d7d7;">
+                        <div class="edit_info left">
+                           <strong>주소 <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/red_circle.png" alt="필수사항표시"></strong>
+                        </div>
+                        <div class="edit_info_content right address" style="margin-bottom: 50px;">
+                           <input type="text" name="user_zipcode" id="zipcode" size="7" placeholder="우편번호" style="border-bottom: 0.5px solid #dfdfdf;" onclick="kakaopost()" readonly>
+                           <input type="button" value="우편번호찾기" id="zipcode" name="user_address" class="address_btn" onclick="kakaopost()" required>
+                           <br />
+                           <input type="text" name="user_address" id="address" size="70" th:value="${session.vo.user_address}">
+                           <br />
+                           <input type="text" name="user_address" id="address" size="70" th:value="${session.vo.user_address.substring(session.vo.user_address.indexOf(','),session.vo.user_address.length-1)}" placeholder=" 나머지주소">
+                           <span style="color: red; font-size: 12px;">[[${valid_user_address}]]</span>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+               <!-- 좋아하는 연예인 선택 및 약관 -->
+               <div class="edit_box edit_box2">
+                  <div class="edit_info_box edit_info_box2" style="border-top: none; padding-top: 0;">
+                     <!-- 좋아하는 연예인 선택 -->
+                     <div class="edit_info_innerbox fav_ent">
+                        <div class="edit_info left">
+                           <strong>좋아하는 연예인</strong>
+                        </div>
+                        <div class=" favorite">
+                           <br />
+                           <div class="entertainer">
+                              <span>블랙핑크</span><br /> <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/blackpink.png"><br />
+                              <input type="radio" name="user_fav_ent" class="entertainer" checked required value="BLACKPINK">
+                           </div>
+
+                           <div class="entertainer">
+                              <span>뉴진스</span><br /> <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/newjeans.png"><br />
+                              <input type="radio" name="user_fav_ent" class="entertainer" value="NewJeans" required>
+                           </div>
+
+                           <div class="entertainer">
+                              <span>아이브</span><br /> <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/ive.png"><br />
+                              <input type="radio" name="user_fav_ent" class="entertainer" value="IVE" required>
+                           </div>
+
+                           <div class="entertainer">
+                              <span>이도현</span><br /> <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/leedo1.jpg"><br />
+                              <input type="radio" name="user_fav_ent" class="entertainer" value="이도현" required>
+                           </div>
+
+                           <div class="entertainer chae">
+                              <span>채수빈</span><br /> <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/subin.png"><br />
+                              <input type="radio" name="user_fav_ent" class="entertainer" value="채수빈" required>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- 수정 버튼 및 취소 버튼 -->
+               <div class="edit_btn">
+                  <button class="edit_cancel" onclick="location.href='mypage'">취소</button>
+                  <button type="submit" class="edit_complete">수정</button>
+               </div>
+            </div>
+         </form>
+
+
+      </div>
+   </div>
 </th:block>
 
-	<script src="/js/user_edit_info.js"></script>
+   <script src="/js/user_edit_info.js"></script>
 </html>
