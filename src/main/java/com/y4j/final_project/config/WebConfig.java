@@ -84,7 +84,8 @@ public class WebConfig implements WebMvcConfigurer{
 
 		//일반 회원 접근 권한 처리
 		registry.addInterceptor(userAuthHandler())
-			.addPathPatterns("/user/mypage", "/user/user_msg", "/user/cart", "/audition/");
+		.addPathPatterns("/user/mypage", "/user/user_msg", "/user/cart");
+//			.addPathPatterns("/user/mypage", "/user/user_msg", "/user/cart", "/audition/");
 //			.addPathPatterns("/user/*")
 //			.excludePathPatterns("/user/login")
 //			.excludePathPatterns("/user/join");
@@ -108,7 +109,8 @@ public class WebConfig implements WebMvcConfigurer{
 		//오디션 관리 탭 접근 권한 처리
 		registry.addInterceptor(auditionAuthHandler())
 			.addPathPatterns("/audition/*")
-			.excludePathPatterns("/audition/audition_notice");
+			.excludePathPatterns("/audition/audition_notice")
+			.excludePathPatterns("/audition/audApplyForm");
 		
 		
 	}

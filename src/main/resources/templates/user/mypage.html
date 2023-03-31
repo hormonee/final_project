@@ -16,95 +16,95 @@
 
 
 
-	<div class="mypage_section">
-		<div class="mypage_box">
-			<div class="mypage_innerbox">
+   <div class="mypage_section">
+      <div class="mypage_box">
+         <div class="mypage_innerbox">
 
-				<!-- mypage 제목 -->
-				<div class="mypage_title">
-					<h3>
-						<em>My Page</em>
-					</h3>
-				</div>
+            <!-- mypage 제목 -->
+            <div class="mypage_title">
+               <h3>
+                  <em>My Page</em>
+               </h3>
+            </div>
 
-				<!-- 회원의 간단한 정보 -->
-				<div class="user_simple_data">
-					<div class="user_fav_ent_profile ">
-						<img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/guesung.png" alt="좋아하는연예인">
-					</div>
+            <!-- 회원의 간단한 정보 -->
+            <div class="user_simple_data">
+               <div class="user_fav_ent_profile ">
+                  <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/newjeans_all.jpeg" alt="좋아하는연예인">
+               </div>
 
-					<div class="user_grade">
-						<h3>[[${session.vo.user_name}]]([[${session.vo.user_id}]])님 반갑습니다</h3>
-						<strong>[일반 회원]</strong>
-						<p>
-							현재 <span name="user_fav_ent" style="border: none; text-align: center; font-size: 18px; font-weight: 600;">[[${session.vo.user_fav_ent}]]</span> 의 팬입니다
-						</p>
-					</div>
+               <div class="user_grade">
+                  <h3>[[${session.vo.user_name}]]([[${session.vo.user_id}]])님 반갑습니다</h3>
+                  <strong>[일반 회원]</strong>
+                  <p>
+                     현재 <span name="user_fav_ent" style="border: none; text-align: center; font-size: 18px; font-weight: 600;">[[${session.vo.user_fav_ent}]]</span> 의 팬입니다
+                  </p>
+               </div>
 
-				</div>
+            </div>
 
-				<!-- 페이지 연결 -->
-				<div class="connect_page">
-					<div class="connect_page_content">
+            <!-- 페이지 연결 -->
+            <div class="connect_page">
+               <div class="connect_page_content">
 
-						<!-- 회원정보 수정 -->
-						<div class="content_box">
-							<button onclick="location.href='/user/user_info_edit'" style="border: none; background-color: inherit; cursor: pointer;">
-								<img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/user_info.png" alt="회원정보">
-								<div class="content_title">
-									<h3>My Info</h3>
-									회원정보 수정
-								</div>
-								<br />
-								<br />
-								<div class="content_detail">
-									회원님의 개인정보를 <br /> 관리하는 공간입니다.
-								</div>
-							</button>
-						</div>
+                  <!-- 회원정보 수정 -->
+                  <div class="content_box">
+                     <button onclick="location.href='/user/user_info_edit'" style="border: none; background-color: inherit; cursor: pointer;">
+                        <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/user_info.png" alt="회원정보">
+                        <div class="content_title">
+                           <h3>My Info</h3>
+                           회원정보 수정
+                        </div>
+                        <br />
+                        <br />
+                        <div class="content_detail">
+                           회원님의 개인정보를 <br /> 관리하는 공간입니다.
+                        </div>
+                     </button>
+                  </div>
 
-						<!-- 쪽지 -->
-						<div class="content_box">
-							<button type="submit" onclick="location.href='/user/user_msg';" style="border: none; background-color: inherit; cursor: pointer;">
-								<img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/chat1.png" alt="쪽지">
+                  <!-- 쪽지 -->
+                  <div class="content_box">
+                     <button type="submit" onclick="location.href='/user/user_msg';" style="border: none; background-color: inherit; cursor: pointer;">
+                        <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/chat1.png" alt="쪽지">
 
-								<div class="content_title">
-									<h3>Message</h3>
-									쪽지
-								</div>
-								<br />
-								<br />
-								<div class="content_detail">
-									다른 회원과 쪽지로 <br /> 의사소통할 수 있습니다.
-								</div>
-							</button>
-						</div>
+                        <div class="content_title">
+                           <h3>Message</h3>
+                           쪽지
+                        </div>
+                        <br />
+                        <br />
+                        <div class="content_detail">
+                           다른 회원과 쪽지로 <br /> 의사소통할 수 있습니다.
+                        </div>
+                     </button>
+                  </div>
 
-						<!-- 결제내역 조회 -->
-						<div class="content_box">
-							<button type="submit" onclick="location.href='/product/user_orderList'" style="border: none; background-color: inherit; cursor: pointer;">
-								<img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/order_list.png" alt="결제내역조회">
+                  <!-- 결제내역 조회 -->
+                  <div class="content_box">
+                     <button type="submit" onclick="location.href='/product/user_orderList'" style="border: none; background-color: inherit; cursor: pointer;">
+                        <img src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/order_list.png" alt="결제내역조회">
 
-								<div class="content_title">
-									<h3>Order List</h3>
-									주문내역 조회
-								</div>
-								<br />
-								<br />
-								<div class="content_detail">
-									주문하신 상품의 <br /> 주문내역을 확인하실 수 있습니다.
-								</div>
-							</button>
-						</div>
-					</div>
+                        <div class="content_title">
+                           <h3>Order List</h3>
+                           주문내역 조회
+                        </div>
+                        <br />
+                        <br />
+                        <div class="content_detail">
+                           주문하신 상품의 <br /> 주문내역을 확인하실 수 있습니다.
+                        </div>
+                     </button>
+                  </div>
+               </div>
 
-				</div>
-			</div>
-		</div>
-	</div>
+            </div>
+         </div>
+      </div>
+   </div>
 
 
-	
+   
 </div>
  
 </th:block>

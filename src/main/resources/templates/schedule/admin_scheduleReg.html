@@ -9,7 +9,7 @@
 
 <th:block th:replace="~{./layout/y4j_layout :: funcLayout(~{:: .fragment})}">
 
-	<div class="fragment">
+   <div class="fragment">
 
 		<div class="table_wrap">
 			<div class="title">일정등록</div>
@@ -100,21 +100,22 @@
 								</tbody>
 							</table>
 
-						</li>
-					</ul>
-					
-					<div class="btn_wrap">
-						<button type="submit" id="submit" class="btn btn-primary custom_btn">등록</button>
-						<button type="reset" class="btn btn-primary custom_btn">초기화</button>
-						<button type="button" class="btn btn-primary custom_btn" onclick="location.href='/schedule/admin_scheduleList'">목록</button>
-					</div>
-					
-				</div>
-			</form>
-		</div>
-	</div>
+
+                  </li>
+               </ul>
+               
+              <div class="btn_wrap">
+                 <button type="submit" id="submit" class="btn btn-primary custom_btn">등록</button>
+                 <button type="reset" class="btn btn-primary custom_btn">초기화</button>
+                 <button type="button" class="btn btn-primary custom_btn" onclick="location.href='/schedule/admin_scheduleList'">목록</button>
+              </div>
+               
+           </div>
+        </form>
+     </div>
+   </div>
 
 </th:block>
-	<script src="/js/admin_scheduleReg.js"></script>
+   <script src="/js/admin_scheduleReg.js"></script>
 
 </html>
