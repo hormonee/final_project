@@ -80,7 +80,9 @@ public class ScheduleController {
 							 EntertainerScheduleVO vo2,
 							 RedirectAttributes ra) {
 		System.out.println("error 없음");
+		
 		if(errors.hasErrors()) { //에러 존재시 true
+			
 			System.out.println("error존재");
 			List<FieldError> list = errors.getFieldErrors(); //에러가 발생된 목록
 			for(FieldError err : list) {

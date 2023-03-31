@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.mysql.cj.Session;
 import com.y4j.final_project.command.CartVO;
 import com.y4j.final_project.command.OrderHistoryVO;
 import com.y4j.final_project.command.UserOrderVO;

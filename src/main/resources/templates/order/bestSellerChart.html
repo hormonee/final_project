@@ -2,7 +2,7 @@
 <html xmlns:th=“http://www.thymeleaf.org”>
 <!-- css -->
 <link rel="stylesheet" href="/css/admin_order/best_seller_chart.css">
-<th:block th:replace="~{/layout/y4j_layout :: funcLayout(~{:: .fragment})}">
+<th:block th:replace="~{./layout/y4j_layout :: funcLayout(~{:: .fragment})}">
     <div class="fragment">
         <input type="hidden" id="pdata" th:value="${parr}" />
         <input type="hidden" id="adata" th:value="${aarr}" />
@@ -49,7 +49,7 @@
                             <input type="hidden" name="order_state" th:value="${vo.order_state}" />
                             <th scope="row">[[${vo.order_no}]]</th>
                             <td>[[${vo.order_date}]]</td>
-                            <td>[[${vo.order_prod_no}]]</td>
+                            <td><span style="font-size: 14px;">[[${vo.order_prod_no}]]</span></td>
                             <td>[[${vo.user_id}]]</td>
                             <td><span class="pname_td_detail">[[${vo.order_prod_name}]]</span></td>
                             <td>[[${vo.order_total_price}]]</td>
