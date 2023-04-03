@@ -50,7 +50,7 @@ public class OrderController {
 		return "order/orderList";
 	}
 
-	/////////////////////////////////[
+	/////////////////////////////////
 	//상세화면
 	@PostMapping("/albumDetail")
 	public String albumDetail(@RequestParam("album_no")Integer album_no, Model model) {
