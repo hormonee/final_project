@@ -14,7 +14,6 @@ if (cnt == 0) {
 // 메뉴바 다운
 var menuTableOpenBtn = document.querySelector(".menuTableOpenBtn");
 menuTableOpenBtn.onclick = function () {
-  console.log(window.innerHeight);
   document.querySelector(".menuTable-outer").style.height = window.innerHeight + "px";
   document.querySelector(".menuTable").style.height = window.innerHeight + "px";
   document.querySelector(".menuTable-outer").style.opacity = 0.8;

@@ -7,6 +7,8 @@ function spinner() {
 }
 
 const sendMessage = async () => {
+  spinner();
+
   const chatInput = document.querySelector('.chat-input input');
   const chatMessage = document.createElement('div');
   chatMessage.classList.add('chat-message');

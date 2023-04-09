@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>y4j_layout</title>
+	<title>Y4J</title>
 	<!-- 스와이퍼 -->
 	<link rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -21,10 +21,12 @@
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <!-- popper.js -->
   <script src="https://unpkg.com/@popperjs/core@2"></script>
-	<!-- bootstrap -->
+	<!-- spinner -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<!-- css링크 -->
 	<link rel="stylesheet" href="/css/bootstrapcss/bootstrap.min.css">
-	<!-- 부트스트랩 테마가 필요하면 이쯤 추가 -->
 	<!-- js링크 -->
   <script src="/js/bootstrapjs/bootstrap.min.js"></script>
   <!-- JS Verbal Expressions -->
@@ -299,7 +301,7 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel"><img class="cb-logo" src="https://jafp.s3.ap-northeast-2.amazonaws.com/y4j/y4j_logo_black.png"><span>Y4J Chat Bot</span></h1>
                 <button type="button" class="btn-close closeModal" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="cb-modal-body" style="width: 550px">
+              <div class="cb-modal-body">
 
                 <div id="chat" class="chat-container">
                   <div class="chat-box">
@@ -308,12 +310,12 @@
                     </div>
                     <!-- 채팅 내용 -->
                   </div>
-                  <div id="loader" class="loader" style="display: none;">
+                  <div id="loader" class="loader">
                     <i class="fa fa-spinner fa-spin"></i>
                   </div>
                   <div class="chat-input">
                     <input type="text" placeholder="질문 내용을 입력해주세요.">
-                    <button type="button" class="btn btn-outline-dark" onclick="spinner()">전송</button>
+                    <button type="button" class="btn btn-outline-dark">전송</button>
                   </div>
                 </div>
 

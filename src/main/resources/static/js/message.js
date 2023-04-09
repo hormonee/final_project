@@ -13,19 +13,19 @@ $(document).on("click", "#sendMsgBtn", function (e) {
   //수신자 아이디 제한
   var msgReceiverId = $('#msgReceiverId').val();
 
-  if(msgReceiverId == null) {
+  if (msgReceiverId == null) {
     alert("수신자 ID는 필수 입력 요소입니다.\n아이디를 다시 입력하세요.");
     $("#msgReceiverId").focus();
     e.preventDefault();
     return;
 
-  } else if(msgReceiverId == $('.msg_writer_id').val()) {
+  } else if (msgReceiverId == $('.msg_writer_id').val()) {
     alert("자기 자신에게는 쪽지를 보낼 수 없습니다.\n아이디를 다시 입력하세요.");
     $("#msgReceiverId").focus();
     e.preventDefault();
     return;
 
-  } else if(msgReceiverId == "Administrator" || msgReceiverId == "administrator" || msgReceiverId == "master" || msgReceiverId == "Master") {
+  } else if (msgReceiverId == "Administrator" || msgReceiverId == "administrator" || msgReceiverId == "master" || msgReceiverId == "Master") {
     alert("사이트 관리자에게는 쪽지를 보낼 수 없습니다.\n아이디를 다시 입력하세요.");
     $("#msgReceiverId").focus();
     e.preventDefault();
@@ -33,7 +33,7 @@ $(document).on("click", "#sendMsgBtn", function (e) {
   };
 
   //수신자 유형에 따른 유효성 검사
-  if(receiver_type.val() == 'user') {
+  if (receiver_type.val() == 'user') {
     var result1 = 1;
     $.ajax({
       url: "../idCheck",
@@ -41,7 +41,7 @@ $(document).on("click", "#sendMsgBtn", function (e) {
       data: { "user_id": msgReceiverId },
       success: function (data) {
         console.log(data);
-        if(data == 0) {
+        if (data == 0) {
           result1 = 0;
           alert("존재하지 않는 회원입니다.\n아이디를 다시 입력하세요.");
           $("#msgReceiverId").focus();
@@ -57,14 +57,14 @@ $(document).on("click", "#sendMsgBtn", function (e) {
       }
     });
 
-  } else if(receiver_type.val() == 'admin') {
+  } else if (receiver_type.val() == 'admin') {
     var result2 = 1;
     $.ajax({
       url: "../adminIdCheck",
       type: "post",
       data: { "admin_id": msgReceiverId },
       success: function (data) {
-        if(data == 0) {
+        if (data == 0) {
           result2 = 0;
           alert("존재하지 않는 관리자입니다.\n아이디를 다시 입력하세요.");
           $("#msgReceiverId").focus();
@@ -84,18 +84,18 @@ $(document).on("click", "#sendMsgBtn", function (e) {
 
 // 푸터 고정
 function footerFixed() {
-      var fragmentHeight = document.querySelector(".fragment").scrollHeight;
+  var fragmentHeight = document.querySelector(".fragment").scrollHeight;
 
-      if (fragmentHeight + 272 < window.innerHeight) {
-        $(".footer-outer").css({ position: "fixed", bottom: "0px" });
-        $("body").css("overflow", "hidden");
-        $(".fragment").css("overflow", "hidden");
+  if (fragmentHeight + 272 < window.innerHeight) {
+    $(".footer-outer").css({ position: "fixed", bottom: "0px" });
+    $("body").css("overflow", "hidden");
+    $(".fragment").css("overflow", "hidden");
 
-      } else {
-        $(".footer-outer").css({ position: "static", })
-        $("body").css("overflow", "auto");
-        $(".fragment").css("overflow", "auto");
-      }
+  } else {
+    $(".footer-outer").css({ position: "static", })
+    $("body").css("overflow", "auto");
+    $(".fragment").css("overflow", "auto");
+  }
 }
 
 // 푸터 및 스크롤 처리 ajax 방식
@@ -106,7 +106,7 @@ function footerFixedAjax() {
     async: false,
     success: function (data) {
       var fragmentHeight = document.querySelector(".fragment").scrollHeight;
-      
+
       if (fragmentHeight + 272 < window.innerHeight) {
         $(".footer-outer").css({ position: "fixed", bottom: "0px" });
         $("body").css("overflow", "auto");
@@ -128,7 +128,6 @@ function footerFixedAjax() {
 // 수신 메시지 조회
 function getReceivedMsgList() {
   $(".accordion").html("");
-
 
   var msg_receiver_id = $('.msg_writer_id').val();
 

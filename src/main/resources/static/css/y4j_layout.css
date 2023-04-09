@@ -601,6 +601,16 @@ aside .aside_wrap {
   vertical-align: middle;
 }
 
+.cb-modal-body {
+  width: 550px;
+}
+
+.cb-modal-body .loader {
+  display: none;
+  font-size: 30px;
+  text-align: center;
+}
+
 .chat-container {
   border: 2px solid #ccc;
   border-radius: 10px;
